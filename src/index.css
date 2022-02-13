@@ -164,7 +164,7 @@ body {
 }
 .food {
   width: 18rem;
-  height: 24rem;
+  height: 26rem;
   margin: 0.5rem;
   border-radius: 1rem;
   cursor: pointer;
@@ -215,7 +215,7 @@ body {
   font-size: 0.8rem;
   color: darkorange;
 }
-.food-info button,
+.food button,
 .food-info2 button {
   background-color: darkorange;
   color: white;
@@ -225,6 +225,7 @@ body {
   font-size: 0.8rem;
   border-radius: 0.4rem;
   cursor: pointer;
+  margin-top: 2rem;
 }
 .fooditem {
   width: 90%;
@@ -597,11 +598,28 @@ body {
 }
 .payment-tab {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 90%;
-  height: 8rem;
-  background-color: darkorange;
+  height: 8 rem;
+  background-color: rgb(255, 140, 0, 0.25);
   padding: 2rem;
   border-radius: 0.8rem;
+  margin: 3rem 0;
+}
+.payment-tab h3 {
+  color: darkorange;
+}
+.payment-tab button {
+  color: white;
+  background-color: red;
+  padding: 0.5rem 1rem;
+  outline: none;
+  border: none;
+  border-radius: 0.4rem;
+}
+.payment-tab span {
+  color: green;
+  font-weight: 800;
+  font-size: 1.2rem;
 }

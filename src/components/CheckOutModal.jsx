@@ -1,5 +1,11 @@
+import { useSelector, useDispatch } from "react-redux";
+
 const CheckOutModal = () => {
-  const cartEmpty = false;
+  const cartIsEmpty = useSelector((state) => state.checkOut.flags.cartEmpty);
+  const itemInCart = useSelector((state) => state.checkOut.flags.checkOutItems);
+  console.log(cartIsEmpty);
+  console.log(itemInCart);
+
   return (
     <div className="checkout">
       <div className="checkout-header">
@@ -159,10 +165,11 @@ const CheckOutModal = () => {
           </svg>
         </div>
       </div>
-      {!cartEmpty ? (
+      {false ? (
         <div className="payment-tab">
-          <h3>Total Amount of items on Cart= </h3>{" "}
+          <h3>Total Amount of items on Cart </h3>{" "}
           <span className="total-payable"> $0.00</span>
+          <button>Checkout</button>
         </div>
       ) : (
         <h2 className="empty">Your Cart is Empty!</h2>

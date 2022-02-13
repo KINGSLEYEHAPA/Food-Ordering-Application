@@ -8,14 +8,14 @@ import {
 } from "../redux/action/actionCreator";
 import CheckOutModal from "./CheckOutModal";
 
-// import {BrowserRouter as Router,Routes,Route } from "react-router-dom"
-
 const Header = () => {
   const dispatch = useDispatch();
   const modalState = useSelector(
     (state) => state.checkOut.flags.checkOutModalIsOpen
   );
-  console.log(modalState);
+  const cartIsEmpty = useSelector((state) => state.checkOut.flags.cartIsEmpty);
+  const itemInCart = useSelector((state) => state.checkOut.flags.checkOutItems);
+  console.log(modalState, cartIsEmpty, itemInCart);
 
   useEffect(() => {
     dispatch(getProduct);

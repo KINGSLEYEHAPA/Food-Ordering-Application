@@ -1,14 +1,23 @@
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
+import { actionTypes } from "../redux/action/actiontype";
 import useFetch from "../useFetch";
 
 const Category = () => {
   let params = useParams();
   const catLink = params.categoryId;
   console.log(catLink);
+  const itemInCart = useSelector((state) => state.checkOut.checkOutItems);
+  console.log(itemInCart);
+  const [cartItem, setCartItem] = useState([itemInCart]);
 
   const [data, loading, error] = useFetch(
     `https://ig-food-menus.herokuapp.com/${catLink}`
   );
+  console.log(cartItem);
+  const dispatch = useDispatch();
+  cartItem && dispatch({ type: actionTypes.ADD_TO_CART, payload: cartItem });
 
   return (
     <div className="category-section">
@@ -18,20 +27,36 @@ const Category = () => {
           <h2 className="category-load">Loading your Food...</h2>
         ) : (
           data &&
-          data.map((item) => {
+          data.map((item, index) => {
             return (
-              <Link to={`/menu/${item.id}`} className="foodie">
-                <div className="food" key={item.id}>
-                  <img src={item.img} alt="" />
-                  <p className="state"> Available</p>
-                  <h3>{item.dsc}</h3>
-                  <div className="food-info">
-                    <p className="price">{`$${item.price}.00`}</p>
-                    <button>Add to Cart</button>{" "}
+              <div className="food" key={index}>
+                <Link to={`/menu/${item.id}`} className="foodie">
+                  <div>
+                    <img src={item.img} alt="" />
+                    <p className="state"> Available</p>
+                    <h3>{item.dsc}</h3>
+                    <div className="food-info">
+                      <p className="price">{`$${item.price}.00`}</p>
+                    </div>
+                    <p className="descrip">{item.name}</p>
                   </div>
-                  <p className="descrip">{item.name}</p>
-                </div>
-              </Link>
+                </Link>
+                <button
+                  onClick={() => {
+                    setCartItem((prev) => [
+                      ...prev,
+                      {
+                        name: item.dsc,
+                        image: item.img,
+                        itemPrice: item.price,
+                      },
+                    ]);
+                  }}
+                >
+                  {" "}
+                  Add to Cart
+                </button>{" "}
+              </div>
             );
           })
         )}
