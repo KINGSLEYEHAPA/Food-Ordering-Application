@@ -10,7 +10,7 @@ const Category = () => {
   console.log(catLink);
   const itemInCart = useSelector((state) => state.checkOut.checkOutItems);
   console.log(itemInCart);
-  const [cartItem, setCartItem] = useState([itemInCart]);
+  const [cartItem, setCartItem] = useState([]);
 
   const [data, loading, error] = useFetch(
     `https://ig-food-menus.herokuapp.com/${catLink}`

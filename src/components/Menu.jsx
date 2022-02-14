@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { actionTypes } from "../redux/action/actiontype";
@@ -11,7 +11,11 @@ const Menu = () => {
   console.log(data);
   console.log(cartItem);
   const dispatch = useDispatch();
-  cartItem && dispatch({ type: actionTypes.ADD_TO_CART, payload: cartItem });
+
+  useEffect(() => {
+    cartItem !== 0 &&
+      dispatch({ type: actionTypes.ADD_TO_CART, payload: cartItem });
+  }, [cartItem]);
 
   return (
     <div className="menu">

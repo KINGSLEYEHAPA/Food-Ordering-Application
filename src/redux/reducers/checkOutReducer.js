@@ -3,14 +3,13 @@ import { actionTypes } from "../action/actiontype";
 const checkoutData = {
   checkoutItems: [],
   itemSold: [],
-  flags: {
-    checkOutModalIsOpen: false,
-    cartEmpty: true,
-    orderPlaced: false,
-    checkOutButtonClicked: false,
-    available: true,
-    receiptButtonClicked: false,
-  },
+
+  checkOutModalIsOpen: false,
+  cartEmpty: true,
+  orderPlaced: false,
+  checkOutButtonClicked: false,
+  available: true,
+  receiptButtonClicked: false,
 };
 
 const checkOutReducer = (state = checkoutData, action) => {
@@ -21,17 +20,17 @@ const checkOutReducer = (state = checkoutData, action) => {
     case actionTypes.TOGGLE_CHECKOUT_MODAL:
       return {
         ...state,
-        flags: { checkOutModalIsOpen: true },
+        checkOutModalIsOpen: true,
       };
     case actionTypes.TOGGLE_CHECKOUT_MODAL_CLOSE:
       return {
         ...state,
-        flags: { checkOutModalIsOpen: false },
+        checkOutModalIsOpen: false,
       };
     case actionTypes.ADD_TO_CART:
       return {
         ...state,
-        checkoutItems: [payload],
+        checkoutItems: payload,
         cartEmpty: false,
       };
 

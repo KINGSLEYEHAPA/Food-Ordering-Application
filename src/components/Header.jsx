@@ -10,12 +10,19 @@ import CheckOutModal from "./CheckOutModal";
 
 const Header = () => {
   const dispatch = useDispatch();
-  const modalState = useSelector(
-    (state) => state.checkOut.flags.checkOutModalIsOpen
+  const modalState = useSelector((state) => state.checkOut.checkOutModalIsOpen);
+  const itemInCartState = useSelector((state) => state.checkOut);
+
+  const cartIsEmpty = itemInCartState.cartEmpty;
+  const itemInCart = itemInCartState.checkoutItems;
+
+  console.log(
+    modalState,
+    cartIsEmpty,
+    itemInCart,
+    itemInCartState,
+    itemInCartState.cartEmpty
   );
-  const cartIsEmpty = useSelector((state) => state.checkOut.flags.cartIsEmpty);
-  const itemInCart = useSelector((state) => state.checkOut.flags.checkOutItems);
-  console.log(modalState, cartIsEmpty, itemInCart);
 
   useEffect(() => {
     dispatch(getProduct);
@@ -60,10 +67,15 @@ const Header = () => {
               d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
             />
           </svg>
-          <div>15</div>
+          {!cartIsEmpty && <div>{itemInCart.length}</div>}
         </span>
       </nav>
-      {modalState && <CheckOutModal />}
+      {modalState && (
+        <CheckOutModal
+          cartIsEmpty={cartIsEmpty}
+          itemInCartState={itemInCartState}
+        />
+      )}
     </header>
   );
 };

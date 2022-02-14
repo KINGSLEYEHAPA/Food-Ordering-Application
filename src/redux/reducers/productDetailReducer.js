@@ -5,7 +5,6 @@ const initialStateData = {
   data: [],
   error: null,
   isError: false,
-  // categoryData: [],
 };
 
 const productDetailReducer = (state = initialStateData, action) => {

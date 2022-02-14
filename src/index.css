@@ -195,6 +195,12 @@ body {
 .foodie {
   text-decoration: none;
 }
+.added-to-cart {
+  position: absolute;
+  background-color: brown;
+  width: 20rem;
+  height: 25rem;
+}
 .menu {
   min-height: 60vh;
 }
@@ -568,9 +574,10 @@ body {
   color: darkorange;
   font-weight: 600;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 20rem;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 18rem;
+  text-align: left;
 }
 .product-price {
   color: red;
@@ -591,6 +598,7 @@ body {
 }
 .empty {
   color: red;
+  margin-top: 2rem;
 }
 .trash svg {
   color: red;
