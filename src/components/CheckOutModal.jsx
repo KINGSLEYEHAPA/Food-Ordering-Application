@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { actionTypes } from "../redux/action/actiontype";
 
 const CheckOutModal = ({ cartIsEmpty, itemInCartState }) => {
   const itemInCart = itemInCartState.checkoutItems;
   console.log(itemInCart, itemInCartState);
-  const [quantity, setQuantity] = useState([]);
-  console.log(quantity);
+
+  const dispatch = useDispatch();
 
   //
 
@@ -26,7 +27,20 @@ const CheckOutModal = ({ cartIsEmpty, itemInCartState }) => {
               <div className="quantity">
                 Quantity:{" "}
                 <span>
-                  <input type="number" value={quantity} min="1" />
+                  <input
+                    type="number"
+                    value={item.itemQuantity}
+                    onChange={(event) => {
+                      dispatch({
+                        type: actionTypes.UPDATE_QUANTITY,
+                        payload: {
+                          value: event.target.value,
+                          productId: item.productId,
+                        },
+                      });
+                    }}
+                    min="1"
+                  />
                 </span>
               </div>
               <div className="trash">

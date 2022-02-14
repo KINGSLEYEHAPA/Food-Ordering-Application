@@ -1,17 +1,22 @@
-import { useSelector } from "react-redux";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { actionTypes } from "../redux/action/actiontype";
 
 const FoodItemPage = () => {
   const params = useParams();
-  console.log(params);
+  const [cartItem, setCartItem] = useState([]);
+
   const data = useSelector((state) => state.product.data);
-  console.log(data);
+
   let getFood = (no) => {
     return data && data.find((item) => item.id === no);
   };
-  console.log(params.foodId);
+
   const oneFoodItem = getFood(params.foodId);
-  console.log(oneFoodItem);
+
+  const dispatch = useDispatch();
+  cartItem && dispatch({ type: actionTypes.ADD_TO_CART, payload: cartItem });
   return (
     <div className="fooditem-section">
       <div className="fooditem">
@@ -24,7 +29,22 @@ const FoodItemPage = () => {
           <h2>{oneFoodItem.dsc}</h2>
           <div className="food-info2">
             <p className="price2">{`$${oneFoodItem.price}.00`}</p>
-            <button>Add to Cart</button>{" "}
+            <button
+              onClick={() => {
+                setCartItem((prev) => [
+                  ...prev,
+                  {
+                    name: oneFoodItem.dsc,
+                    image: oneFoodItem.img,
+                    itemPrice: oneFoodItem.price,
+                    itemQuantity: 1,
+                    productId: oneFoodItem.id,
+                  },
+                ]);
+              }}
+            >
+              Add to Cart
+            </button>{" "}
           </div>
           <p className="descrip2">{oneFoodItem.name}</p>
           <p className="details">

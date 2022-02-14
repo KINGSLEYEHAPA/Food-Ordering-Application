@@ -11,11 +11,12 @@ const Category = () => {
   const itemInCart = useSelector((state) => state.checkOut.checkOutItems);
   console.log(itemInCart);
   const [cartItem, setCartItem] = useState([]);
+  console.log(cartItem);
 
   const [data, loading, error] = useFetch(
     `https://ig-food-menus.herokuapp.com/${catLink}`
   );
-  console.log(cartItem);
+
   const dispatch = useDispatch();
   cartItem && dispatch({ type: actionTypes.ADD_TO_CART, payload: cartItem });
 
@@ -49,6 +50,8 @@ const Category = () => {
                         name: item.dsc,
                         image: item.img,
                         itemPrice: item.price,
+                        itemQuantity: 1,
+                        productId: index,
                       },
                     ]);
                   }}

@@ -15,8 +15,6 @@ const checkoutData = {
 const checkOutReducer = (state = checkoutData, action) => {
   const { type, payload } = action;
   switch (type) {
-    case actionTypes.PLACE_ORDER:
-      return { ...state, checkoutItems: payload };
     case actionTypes.TOGGLE_CHECKOUT_MODAL:
       return {
         ...state,
@@ -33,6 +31,8 @@ const checkOutReducer = (state = checkoutData, action) => {
         checkoutItems: payload,
         cartEmpty: false,
       };
+    // case actionTypes.UPDATE_QUANTITY:
+    //   return { ...state, checkoutItems:[payload.produ };
 
     default:
       return state;
