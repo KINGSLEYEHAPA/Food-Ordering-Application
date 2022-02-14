@@ -29,7 +29,6 @@ const CheckOutModal = ({ cartIsEmpty, itemInCartState }) => {
                 <span>
                   <input
                     type="number"
-                    value={item.itemQuantity}
                     onChange={(event) => {
                       dispatch({
                         type: actionTypes.UPDATE_QUANTITY,

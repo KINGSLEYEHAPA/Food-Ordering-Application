@@ -11,7 +11,6 @@ const Menu = () => {
   console.log(data);
   console.log(cartItem);
   const dispatch = useDispatch();
-  console.log(cartItem);
 
   useEffect(() => {
     cartItem !== 0 &&
@@ -50,7 +49,7 @@ const Menu = () => {
                         name: item.dsc,
                         image: item.img,
                         itemPrice: item.price,
-                        itemQuantity: 1,
+                        itemQuantity: 0,
                         productId: index,
                       },
                     ]);

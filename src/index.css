@@ -45,7 +45,7 @@ body {
 }
 .link-item div {
   color: white;
-  background: green;
+  background: red;
   width: 1rem;
   height: 1rem;
   display: flex;
@@ -195,12 +195,7 @@ body {
 .foodie {
   text-decoration: none;
 }
-.added-to-cart {
-  position: absolute;
-  background-color: brown;
-  width: 20rem;
-  height: 25rem;
-}
+
 .menu {
   min-height: 60vh;
 }
@@ -548,7 +543,7 @@ body {
   border-radius: 0.7rem;
   display: flex;
   flex-direction: column;
-  padding: 1.5rem;
+  padding: 3rem;
   overflow-y: auto;
 }
 .one-product {
@@ -595,6 +590,7 @@ body {
 }
 .checkout-header {
   color: darkorange;
+  border-bottom: 2px solid darkorange;
 }
 .empty {
   color: red;
@@ -630,4 +626,30 @@ body {
   color: green;
   font-weight: 800;
   font-size: 1.2rem;
+}
+
+/* sticky header */
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+.sticky.sticky-fixed.is-sticky {
+  margin-top: 0;
+  margin-bottom: 0;
+  position: fixed;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.sticky.sticky-fixed.is-sticky:not([style*="margin-top"]) {
+  margin-top: 0 !important;
+}
+.sticky.sticky-fixed.is-sticky:not([style*="margin-bottom"]) {
+  margin-bottom: 0 !important;
+}
+
+.sticky.sticky-fixed.is-absolute {
+  position: absolute;
 }

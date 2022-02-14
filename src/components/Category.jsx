@@ -50,7 +50,7 @@ const Category = () => {
                         name: item.dsc,
                         image: item.img,
                         itemPrice: item.price,
-                        itemQuantity: 1,
+                        itemQuantity: 0,
                         productId: index,
                       },
                     ]);

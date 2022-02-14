@@ -37,7 +37,7 @@ const FoodItemPage = () => {
                     name: oneFoodItem.dsc,
                     image: oneFoodItem.img,
                     itemPrice: oneFoodItem.price,
-                    itemQuantity: 1,
+                    itemQuantity: 0,
                     productId: oneFoodItem.id,
                   },
                 ]);
