@@ -1,9 +1,10 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { actionTypes } from "../redux/action/actiontype";
 
 const CheckOutModal = ({ cartIsEmpty, itemInCartState }) => {
   const itemInCart = itemInCartState.checkoutItems;
-  console.log(itemInCart, itemInCartState);
+  const payOutForm = useSelector((state) => state.checkOut.payButtonClicked);
+  console.log(itemInCart, itemInCartState, payOutForm);
 
   const dispatch = useDispatch();
   const totalAmountForEachItem = itemInCart.map((item) => {
@@ -25,7 +26,7 @@ const CheckOutModal = ({ cartIsEmpty, itemInCartState }) => {
   return (
     <div className="checkout">
       <div className="dummydiv">
-        {true && (
+        {payOutForm && (
           <div className="checkout-page">
             <div className="checkout-message">
               <h2>Thank you for your Patronage!</h2>
@@ -46,7 +47,9 @@ const CheckOutModal = ({ cartIsEmpty, itemInCartState }) => {
                   <p className="checkout-item-name">{item.name}</p>
                   <p>${item.itemPrice.toFixed(2)}</p>
                   <p>{item.itemQuantity}</p>
-                  <p>${(item.itemPrice * item.itemQuantity).toFixed(2)}</p>
+                  <p className="item-amount">
+                    ${(item.itemPrice * item.itemQuantity).toFixed(2)}
+                  </p>
                 </div>
               );
             })}
@@ -54,7 +57,13 @@ const CheckOutModal = ({ cartIsEmpty, itemInCartState }) => {
             <h3>
               Total Amount:<span>${finalAmount.toFixed(2)}</span>
             </h3>
-            <button>Clear</button>
+            <button
+              onClick={() => {
+                dispatch({ type: actionTypes.CLEAR_RECEIPT });
+              }}
+            >
+              Clear
+            </button>
           </div>
         )}
       </div>
@@ -122,7 +131,19 @@ const CheckOutModal = ({ cartIsEmpty, itemInCartState }) => {
         <div className="payment-tab">
           <h3>Total Amount of items on Cart </h3>{" "}
           <span className="total-payable"> ${finalAmount.toFixed(2)}</span>
-          <button>Pay</button>
+          <button
+            onClick={() => {
+              dispatch({
+                type: actionTypes.PAY_BUTTON,
+                payload: {
+                  purchasedItems: itemInCart,
+                  purchaseId: randomOrderNumber,
+                },
+              });
+            }}
+          >
+            Pay
+          </button>
         </div>
       ) : (
         <h2 className="empty">Your Cart is Empty!</h2>

@@ -25,7 +25,7 @@ const Category = () => {
       <h1>{catLink}</h1>
       <div className="category">
         {loading ? (
-          <h2 className="category-load">Loading your Food...</h2>
+          <h2 className="category-load">Loading our Food Menu...</h2>
         ) : (
           data &&
           data.map((item, index) => {

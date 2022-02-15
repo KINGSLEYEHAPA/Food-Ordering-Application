@@ -7,9 +7,7 @@ const checkoutData = {
   checkOutModalIsOpen: false,
   cartEmpty: true,
   orderPlaced: false,
-  checkOutButtonClicked: false,
-  available: true,
-  receiptButtonClicked: false,
+  payButtonClicked: false,
 };
 
 const checkOutReducer = (state = checkoutData, action) => {
@@ -48,6 +46,19 @@ const checkOutReducer = (state = checkoutData, action) => {
       });
 
       return { ...state, checkoutItems: filteredItems };
+    case actionTypes.PAY_BUTTON:
+      return {
+        ...state,
+        payButtonClicked: true,
+        cartEmpty: true,
+        itemSold: payload,
+      };
+    case actionTypes.CLEAR_RECEIPT:
+      return {
+        ...state,
+        payButtonClicked: false,
+        checkoutItems: [],
+      };
 
     default:
       return state;
