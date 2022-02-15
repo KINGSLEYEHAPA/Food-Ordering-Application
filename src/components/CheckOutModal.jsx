@@ -20,8 +20,44 @@ const CheckOutModal = ({ cartIsEmpty, itemInCartState }) => {
 
   console.log(totalAmountForEachItem, finalAmount, namesOfItemICart);
 
+  const randomOrderNumber = Math.floor(Math.random() * 100000000);
+
   return (
     <div className="checkout">
+      <div className="dummydiv">
+        {true && (
+          <div className="checkout-page">
+            <div className="checkout-message">
+              <h2>Thank you for your Patronage!</h2>
+              <p>
+                Your Order({randomOrderNumber}) has been <b>queued</b>. Please
+                find below details of your Purchase:{" "}
+              </p>
+            </div>
+            <div className="checkout-item-details">
+              <p className="checkout-item-name">Item Name</p>
+              <p>Price</p>
+              <p>Quantity</p>
+              <p>Total Amount Per Item</p>
+            </div>
+            {itemInCart.map((item) => {
+              return (
+                <div key={item.itemId} className="checkout-item-details">
+                  <p className="checkout-item-name">{item.name}</p>
+                  <p>${item.itemPrice.toFixed(2)}</p>
+                  <p>{item.itemQuantity}</p>
+                  <p>${(item.itemPrice * item.itemQuantity).toFixed(2)}</p>
+                </div>
+              );
+            })}
+
+            <h3>
+              Total Amount:<span>${finalAmount.toFixed(2)}</span>
+            </h3>
+            <button>Clear</button>
+          </div>
+        )}
+      </div>
       <div className="checkout-header">
         <h2>Checkout Details</h2>
       </div>
@@ -86,7 +122,7 @@ const CheckOutModal = ({ cartIsEmpty, itemInCartState }) => {
         <div className="payment-tab">
           <h3>Total Amount of items on Cart </h3>{" "}
           <span className="total-payable"> ${finalAmount.toFixed(2)}</span>
-          <button>Checkout</button>
+          <button>Pay</button>
         </div>
       ) : (
         <h2 className="empty">Your Cart is Empty!</h2>

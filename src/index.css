@@ -16,9 +16,10 @@ body {
   align-items: center;
   border-bottom: 2px solid darkorange;
   background-color: white;
-  padding: 0 2rem;
+  padding: 0 0rem;
   height: 6rem;
-  position: sticky;
+  position: fixed;
+  width: 100%;
   z-index: 300;
   top: 0;
 }
@@ -28,6 +29,7 @@ body {
   font-size: 1.8rem;
   cursor: pointer;
   text-decoration: none;
+  padding-left: 2rem;
 }
 .logo span {
   color: green;
@@ -119,6 +121,7 @@ body {
   background-color: rgb(255, 140, 0, 0.25);
   margin: 3rem;
   border-radius: 2rem;
+  margin-top: 40px;
 }
 .main-image {
   width: 30rem;
@@ -546,6 +549,9 @@ body {
   padding: 3rem;
   overflow-y: auto;
 }
+.dummydiv {
+  position: relative;
+}
 .one-product {
   display: flex;
   margin: 0.5rem 0;
@@ -627,29 +633,44 @@ body {
   font-weight: 800;
   font-size: 1.2rem;
 }
-
-/* sticky header */
-.sticky {
-  position: -webkit-sticky;
-  position: sticky;
-}
-
-.sticky.sticky-fixed.is-sticky {
-  margin-top: 0;
-  margin-bottom: 0;
-  position: fixed;
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.sticky.sticky-fixed.is-sticky:not([style*="margin-top"]) {
-  margin-top: 0 !important;
-}
-.sticky.sticky-fixed.is-sticky:not([style*="margin-bottom"]) {
-  margin-bottom: 0 !important;
-}
-
-.sticky.sticky-fixed.is-absolute {
+.checkout-page {
   position: absolute;
+  top: 0;
+  background: white;
+  width: 100%;
+}
+.checkout-page h2,
+p {
+  color: darkorange;
+}
+.checkout-item-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.5rem;
+  padding: 0 1rem;
+}
+.checkout-item-details p {
+  text-align: left;
+  flex: 1;
+}
+.checkout-page h3 {
+  color: red;
+  text-align: right;
+  font-size: 1rem;
+}
+.checkout-page h3 span {
+  margin-left: 2rem;
+}
+.checkout-page button {
+  color: white;
+  background-color: darkorange;
+  padding: 0.2rem 1rem;
+  border-radius: 0.25rem;
+  border: none;
+  outline: none;
+}
+.checkout-item-name {
+  padding-right: 6rem;
+  text-align: left;
 }

@@ -7,6 +7,7 @@ import Search from "./Search";
 const Menu = () => {
   const data = useSelector((state) => state.product.data);
   const loadingState = useSelector((state) => state.product.isloading);
+
   const [cartItem, setCartItem] = useState([]);
   console.log(data);
   console.log(cartItem);
