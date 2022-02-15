@@ -6,8 +6,19 @@ const CheckOutModal = ({ cartIsEmpty, itemInCartState }) => {
   console.log(itemInCart, itemInCartState);
 
   const dispatch = useDispatch();
+  const totalAmountForEachItem = itemInCart.map((item) => {
+    return item.itemQuantity * item.itemPrice;
+  });
 
-  //
+  const namesOfItemICart = itemInCart.map((item) => {
+    return item.name;
+  });
+  let finalAmount = 0;
+  totalAmountForEachItem.forEach((item) => {
+    finalAmount += item;
+  });
+
+  console.log(totalAmountForEachItem, finalAmount, namesOfItemICart);
 
   return (
     <div className="checkout">
@@ -23,7 +34,7 @@ const CheckOutModal = ({ cartIsEmpty, itemInCartState }) => {
                 <img src={item.image} alt="Product" />
               </div>
               <div className="product-name">{item.name}</div>
-              <div className="product-price">${item.itemPrice}.00</div>
+              <div className="product-price">${item.itemPrice.toFixed(2)}</div>
               <div className="quantity">
                 Quantity:{" "}
                 <span>
@@ -42,7 +53,18 @@ const CheckOutModal = ({ cartIsEmpty, itemInCartState }) => {
                   />
                 </span>
               </div>
-              <div className="trash">
+              <div
+                className="trash"
+                onClick={(event) => {
+                  dispatch({
+                    type: actionTypes.DELETE_AN_ITEM_FROM_CART,
+                    payload: {
+                      value: event.target.value,
+                      deleteId: item.productId,
+                    },
+                  });
+                }}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5"
@@ -63,7 +85,7 @@ const CheckOutModal = ({ cartIsEmpty, itemInCartState }) => {
       {!cartIsEmpty && itemInCart.length > 0 ? (
         <div className="payment-tab">
           <h3>Total Amount of items on Cart </h3>{" "}
-          <span className="total-payable"> $0.00</span>
+          <span className="total-payable"> ${finalAmount.toFixed(2)}</span>
           <button>Checkout</button>
         </div>
       ) : (

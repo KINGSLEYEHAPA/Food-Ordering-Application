@@ -15,11 +15,6 @@ const checkoutData = {
 const checkOutReducer = (state = checkoutData, action) => {
   const { type, payload } = action;
 
-  const searchItem = checkoutData.checkoutItems.find((item) => {
-    return payload.productId === item.productId;
-  });
-  console.log(searchItem);
-
   switch (type) {
     case actionTypes.TOGGLE_CHECKOUT_MODAL:
       return {
@@ -47,6 +42,12 @@ const checkOutReducer = (state = checkoutData, action) => {
       console.log(index);
 
       return { ...state, checkoutItems: newArray };
+    case actionTypes.DELETE_AN_ITEM_FROM_CART:
+      const filteredItems = state.checkoutItems.filter((it) => {
+        return it.productId !== payload.deleteId;
+      });
+
+      return { ...state, checkoutItems: filteredItems };
 
     default:
       return state;

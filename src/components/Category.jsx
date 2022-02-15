@@ -44,16 +44,26 @@ const Category = () => {
                 </Link>
                 <button
                   onClick={() => {
-                    setCartItem((prev) => [
-                      ...prev,
-                      {
-                        name: item.dsc,
-                        image: item.img,
-                        itemPrice: item.price,
-                        itemQuantity: 0,
-                        productId: index,
-                      },
-                    ]);
+                    const filteredItems =
+                      cartItem.length !== 0 &&
+                      cartItem.filter((it) => {
+                        return item.id === it.itemId;
+                      });
+                    console.log(filteredItems);
+
+                    filteredItems.length > 0
+                      ? setCartItem([...cartItem])
+                      : setCartItem((prev) => [
+                          ...prev,
+                          {
+                            name: item.dsc,
+                            image: item.img,
+                            itemPrice: item.price,
+                            itemQuantity: 0,
+                            productId: index,
+                            itemId: item.id,
+                          },
+                        ]);
                   }}
                 >
                   {" "}

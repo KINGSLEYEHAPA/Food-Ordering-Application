@@ -31,16 +31,26 @@ const FoodItemPage = () => {
             <p className="price2">{`$${oneFoodItem.price}.00`}</p>
             <button
               onClick={() => {
-                setCartItem((prev) => [
-                  ...prev,
-                  {
-                    name: oneFoodItem.dsc,
-                    image: oneFoodItem.img,
-                    itemPrice: oneFoodItem.price,
-                    itemQuantity: 0,
-                    productId: oneFoodItem.id,
-                  },
-                ]);
+                const filteredItems =
+                  cartItem.length !== 0 &&
+                  cartItem.filter((it) => {
+                    return oneFoodItem.id === it.itemId;
+                  });
+                console.log(filteredItems);
+
+                filteredItems.length > 0
+                  ? setCartItem([...cartItem])
+                  : setCartItem((prev) => [
+                      ...prev,
+                      {
+                        name: oneFoodItem.dsc,
+                        image: oneFoodItem.img,
+                        itemPrice: oneFoodItem.price,
+                        itemQuantity: 0,
+                        productId: 0,
+                        itemId: oneFoodItem.id,
+                      },
+                    ]);
               }}
             >
               Add to Cart
