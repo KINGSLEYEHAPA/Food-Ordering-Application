@@ -1,10 +1,10 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { actionTypes } from "../redux/action/actiontype";
 
 const CheckOutModal = ({ cartIsEmpty, itemInCartState }) => {
   const itemInCart = itemInCartState.checkoutItems;
-  const payOutForm = useSelector((state) => state.checkOut.payButtonClicked);
-  console.log(itemInCart, itemInCartState, payOutForm);
+  const payOutForm = itemInCartState.payButtonClicked;
+  console.log(itemInCart, itemInCartState);
 
   const dispatch = useDispatch();
   const totalAmountForEachItem = itemInCart.map((item) => {
@@ -19,7 +19,12 @@ const CheckOutModal = ({ cartIsEmpty, itemInCartState }) => {
     finalAmount += item;
   });
 
-  console.log(totalAmountForEachItem, finalAmount, namesOfItemICart);
+  console.log(
+    totalAmountForEachItem,
+    finalAmount,
+    namesOfItemICart,
+    payOutForm
+  );
 
   const randomOrderNumber = Math.floor(Math.random() * 100000000);
 
@@ -31,8 +36,8 @@ const CheckOutModal = ({ cartIsEmpty, itemInCartState }) => {
             <div className="checkout-message">
               <h2>Thank you for your Patronage!</h2>
               <p>
-                Your Order({randomOrderNumber}) has been <b>queued</b>. Please
-                find below details of your Purchase:{" "}
+                Your Order with number:<b>{randomOrderNumber}</b> has been
+                <b>queued</b>. Please find below details of your Purchase:
               </p>
             </div>
             <div className="checkout-item-details">
@@ -62,7 +67,7 @@ const CheckOutModal = ({ cartIsEmpty, itemInCartState }) => {
                 dispatch({ type: actionTypes.CLEAR_RECEIPT });
               }}
             >
-              Clear
+              Clear Cart
             </button>
           </div>
         )}

@@ -8,6 +8,7 @@ import FoodItemPage from "./FoodItemPage";
 import HomePage from "./HomePage";
 import Menu from "./Menu";
 import store from "../redux/store";
+import ErrorPage from "./ErrorPage";
 
 const ApplicationsRoutes = () => {
   return (
@@ -20,6 +21,7 @@ const ApplicationsRoutes = () => {
             <Route path="/menu/:foodId" element={<FoodItemPage />} />
             <Route path="/categories" element={<Categories />} />
             <Route path="/category/:categoryId" element={<Category />} />
+            <Route path="*" element={<ErrorPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { actionTypes } from "../redux/action/actiontype";
-import Search from "./Search";
 
 const Menu = () => {
   const data = useSelector((state) => state.product.data);
-  const loadingState = useSelector((state) => state.product.isloading);
+  const loadingState = useSelector((state) => state.product.isLoading);
+  const productState = useSelector((state) => state.product);
 
   const [cartItem, setCartItem] = useState([]);
   console.log(data);
@@ -14,7 +14,7 @@ const Menu = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    cartItem !== 0 &&
+    cartItem.length !== 0 &&
       dispatch({ type: actionTypes.ADD_TO_CART, payload: cartItem });
   }, [cartItem]);
 
@@ -22,7 +22,6 @@ const Menu = () => {
     <div className="menu">
       {" "}
       <h1>Menu</h1>
-      <Search />
       <div className="food-container">
         {loadingState ? (
           <h2 className="load-state">Loading Menu....</h2>
@@ -73,6 +72,11 @@ const Menu = () => {
           })
         )}
       </div>
+      {productState.isError && (
+        <h3 className="load-state">
+          Error:Could not fetch Data{productState.error}
+        </h3>
+      )}
     </div>
   );
 };

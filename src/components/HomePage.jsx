@@ -1,12 +1,10 @@
 import Banner from "./Banner";
 import Categories from "./Categories";
 import Hero from "./Hero";
-import Search from "./Search";
 
 const HomePage = () => {
   return (
-    <div>
-      <Search />
+    <div className="homepage">
       <Hero />
       <Banner />
       <Categories />

@@ -22,6 +22,7 @@ const productDetailReducer = (state = initialStateData, action) => {
         ...state,
         error: payload,
         isError: true,
+        isLoading: false,
       };
 
     default:

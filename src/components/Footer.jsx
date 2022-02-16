@@ -1,4 +1,11 @@
-// import { AiOutlineTwitter } from "react-icons/ri";
+import {
+  FaLinkedinIn,
+  FaGooglePlay,
+  FaAppStore,
+  FaFacebookF,
+  FaInstagram,
+  FaTwitter,
+} from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -17,17 +24,29 @@ const Footer = () => {
       </div>
 
       <div className="social-links">
-        <span>twitter</span>
-        <span>facebook</span>
-        <span>linkedin</span>
-        <span>instagram</span>
+        <span>
+          <FaTwitter />
+        </span>
+        <span>
+          <FaFacebookF />
+        </span>
+        <span>
+          <FaLinkedinIn />
+        </span>
+        <span>
+          <FaInstagram />
+        </span>
       </div>
       <div className="download">
         <h2>Payment Options</h2>
         <p>Mastercard, Visa,Applepay and Googlepay</p>
 
-        <span>apple</span>
-        <span>playstore</span>
+        <span>
+          <FaAppStore />
+        </span>
+        <span>
+          <FaGooglePlay />
+        </span>
       </div>
     </footer>
   );

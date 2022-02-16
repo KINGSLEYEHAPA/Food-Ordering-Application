@@ -3,6 +3,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
+  position: relative;
 }
 .App {
   font-family: sans-serif;
@@ -44,6 +45,7 @@ body {
 }
 .cart-link {
   position: relative;
+  top: 0.5rem;
 }
 .link-item div {
   color: white;
@@ -70,7 +72,7 @@ body {
 }
 
 .footer {
-  background: rgb(255, 140, 0, 0.4);
+  background: rgb(255, 140, 0, 0.3);
   display: flex;
   justify-content: space-between;
 
@@ -94,15 +96,37 @@ body {
   color: white;
   font-size: 0.8rem;
 }
+.about h3,
+.about p {
+  text-align: justify;
+  color: darkorange;
+}
 
 .download h2 {
-  color: white;
+  color: darkorange;
   font-size: 1.2rem;
 }
 .download p {
-  color: white;
+  color: darkorange;
 }
-
+.social-links {
+  margin-top: 4rem;
+}
+.social-links span {
+  padding: 1rem;
+  color: darkorange;
+  cursor: pointer;
+  font-size: 1.4rem;
+}
+.download span {
+  color: rgb(255, 140, 0, 0.9);
+  font-size: 2rem;
+  padding: 1rem;
+  cursor: pointer;
+}
+.homepage {
+  margin-top: 10rem;
+}
 .hero {
   width: 100%;
   margin: 1rem;
@@ -201,6 +225,12 @@ body {
 
 .menu {
   min-height: 60vh;
+  margin-top: 10rem;
+}
+.load-state {
+  color: darkorange;
+  margin-top: 8rem;
+  text-align: center;
 }
 .menu h1,
 .categories-section h1 {
@@ -243,6 +273,9 @@ body {
   padding: 2rem;
   border-radius: 1rem;
 }
+.fooditem-section {
+  margin-top: 10rem;
+}
 .fooditem img {
   width: 20rem;
   height: 18rem;
@@ -279,8 +312,9 @@ body {
   width: 6rem;
 }
 
-.categories {
+.categories-section {
   min-height: 60vh;
+  margin-top: 10rem;
 }
 .banner {
   display: flex;
@@ -339,6 +373,9 @@ body {
   justify-content: center;
   min-height: 50vh;
 }
+.category-section {
+  margin-top: 10rem;
+}
 .category-section h1 {
   color: darkorange;
   text-transform: capitalize;
@@ -349,7 +386,7 @@ body {
   color: darkorange;
 }
 .searchlist {
-  margin-top: 1rem;
+  margin-top: 8rem;
   width: 20rem;
   height: 8rem;
   overflow: hidden;
@@ -357,9 +394,9 @@ body {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
   font-size: 0.8rem;
   background: white;
-  /* position: absolute;
-  top: 18rem;
-  z-index: 1000; */
+  position: absolute;
+
+  z-index: 1000;
 }
 .searchlist::-webkit-scrollbar {
   display: none;
@@ -685,4 +722,590 @@ p {
 .item-amount {
   color: red;
   font-weight: 600;
+}
+.error-route {
+  min-height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.error-route h2 {
+  color: darkorange;
+  text-align: center;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 1270px) and (min-width: 1066px) {
+  .hero-section {
+    height: 40rem;
+  }
+
+  .hero-section {
+    padding: 1rem;
+  }
+  .main-image {
+    width: 22rem;
+    height: 15rem;
+    border-radius: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 1065px) and (min-width: 800px) {
+  .logo {
+    font-size: 1.3rem;
+  }
+  .cart-link {
+    position: relative;
+    right: 5rem;
+    top: 0.5rem;
+  }
+  .link-item {
+    font-size: 1rem;
+  }
+  .link-item div {
+    top: -10px;
+    right: -5px;
+  }
+  .navigation {
+    padding-left: 4rem;
+  }
+  .search-section {
+    margin-left: 3rem;
+  }
+  .searchInput,
+  .searchlist {
+    width: 20rem;
+    margin-left: 4rem;
+  }
+  .icon-search {
+    margin-left: 4rem;
+  }
+  .hero {
+    width: 100%;
+    margin: 1rem;
+  }
+  .hero div {
+    flex: 1.5;
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  .hero-section {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 6rem;
+    justify-content: center;
+    align-items: center;
+  }
+  .main-image {
+    width: 30rem;
+    height: 20rem;
+    border-radius: 1.5rem;
+  }
+
+  .logo-title {
+    font-size: 3.5rem;
+  }
+  .main-title p {
+    color: white;
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 3rem;
+  }
+
+  .banner img {
+    width: 4rem;
+    height: 3rem;
+  }
+  .banner h1 {
+    font-size: 1.5rem;
+  }
+
+  .food-group {
+    width: 14rem;
+    height: 15rem;
+    margin: 1.5rem;
+  }
+  .footer {
+    padding: 2rem;
+  }
+
+  .food {
+    margin: 1rem;
+  }
+  .fooditem {
+    width: 80%;
+    border: 2px solid darkorange;
+    margin: 5rem 2rem;
+    flex-direction: column;
+    position: relative;
+    left: 2rem;
+  }
+  .fooditem-section {
+    margin-top: 10rem;
+  }
+  .fooditem img {
+    width: 16rem;
+    height: 14rem;
+  }
+  .cart-link {
+    position: relative;
+    top: 0.5rem;
+    left: 0.5rem;
+  }
+  .link-item div {
+    top: -10px;
+    right: -5px;
+  }
+  .mobile-menu {
+    padding-right: 6rem;
+    font-size: 1.5rem;
+    position: relative;
+    color: darkorange;
+  }
+  .navigation-mobile {
+    position: absolute;
+    top: 6rem;
+    flex-direction: column;
+    display: flex;
+    width: 100%;
+    background-color: white;
+    padding: 2rem;
+    border-top: 2px solid darkorange;
+  }
+  .error-route {
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .error-route h2 {
+    color: darkorange;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 799px) and (min-width: 736px) {
+  .mobile-menu {
+    padding-right: 6rem;
+    font-size: 1.5rem;
+    position: relative;
+    color: darkorange;
+  }
+  .navigation-mobile {
+    position: absolute;
+    top: 6rem;
+    flex-direction: column;
+    display: flex;
+    width: 100%;
+    background-color: white;
+    padding: 2rem;
+    border-top: 2px solid darkorange;
+    border-bottom: 2px solid darkorange;
+  }
+  .cart-link {
+    position: relative;
+    top: 0.5rem;
+    left: 0.5rem;
+  }
+
+  .link-item div {
+    top: -10px;
+    right: -5px;
+  }
+  .hero-section {
+    display: flex;
+    margin-bottom: 6rem;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4rem;
+    background-color: rgb(255, 140, 0, 0.25);
+    margin: 3rem;
+    border-radius: 2rem;
+    margin-top: 40px;
+  }
+  .logo {
+    font-size: 1.3rem;
+  }
+  .cart-link {
+    position: relative;
+    right: 5rem;
+    top: 0.5rem;
+  }
+  .link-item {
+    font-size: 1rem;
+  }
+  .link-item div {
+    top: -10px;
+    right: -5px;
+  }
+  .navigation {
+    padding-left: 4rem;
+  }
+  .search-section {
+    margin-left: 3rem;
+  }
+  .searchInput,
+  .searchlist {
+    width: 20rem;
+    margin-left: 4rem;
+  }
+  .icon-search {
+    margin-left: 4rem;
+  }
+  .hero {
+    width: 100%;
+    margin: 1rem;
+    margin-bottom: 5rem;
+  }
+  .hero div {
+    flex: 1.5;
+    text-align: center;
+    margin-bottom: 4rem;
+    width: 90%;
+  }
+  .hero-section {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 6rem;
+    justify-content: center;
+    align-items: center;
+  }
+  .main-image {
+    width: 18rem;
+    height: 14rem;
+    border-radius: 1.5rem;
+  }
+
+  .logo-title {
+    font-size: 3.5rem;
+  }
+  .main-title p {
+    color: white;
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 3rem;
+  }
+
+  .banner img {
+    width: 4rem;
+    height: 3rem;
+  }
+  .banner h1 {
+    font-size: 1.2rem;
+  }
+
+  .food-group {
+    width: 14rem;
+    height: 15rem;
+    margin: 1.5rem;
+  }
+  .footer {
+    padding: 2rem;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer > div {
+    margin: 2rem;
+  }
+  .footer .about {
+    position: relative;
+    left: 2rem;
+    text-align: center;
+  }
+
+  .food {
+    margin: 1rem;
+  }
+  .fooditem {
+    width: 80%;
+    border: 2px solid darkorange;
+    margin: 5rem 2rem;
+    flex-direction: column;
+    position: relative;
+    left: 2rem;
+  }
+  .fooditem-section {
+    margin-top: 10rem;
+  }
+  .fooditem img {
+    width: 16rem;
+    height: 14rem;
+  }
+  .fooditem {
+    width: 80%;
+    border: 2px solid darkorange;
+    margin: 5rem 2rem;
+    flex-direction: column;
+    position: relative;
+    left: 2rem;
+  }
+  .fooditem-section {
+    margin-top: 10rem;
+  }
+  .fooditem img {
+    width: 16rem;
+    height: 14rem;
+  }
+  .error-route {
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .error-route h2 {
+    color: darkorange;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 735px) and (min-width: 525px) {
+  .mobile-menu {
+    padding-right: 2rem;
+    font-size: 1.5rem;
+    position: relative;
+    color: darkorange;
+  }
+  .navigation-mobile {
+    position: absolute;
+    top: 6rem;
+    flex-direction: column;
+    display: flex;
+    width: 100%;
+    background-color: white;
+    padding: 2rem;
+    border-top: 2px solid darkorange;
+    border-bottom: 2px solid darkorange;
+  }
+
+  .hero-section {
+    height: 50rem;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+  .logo {
+    font-size: 1.1rem;
+  }
+  .cart-link {
+    position: relative;
+
+    top: 0.5rem;
+  }
+  .link-item {
+    font-size: 1.5rem;
+  }
+  .link-item div {
+    top: -10px;
+    right: -5px;
+  }
+
+  .search-section {
+    display: none;
+  }
+  .menu h1,
+  .categories-section h1,
+  .category-section h1 {
+    text-align: center;
+    margin-right: 5rem;
+  }
+
+  .hero {
+    width: 100%;
+    margin: 1rem;
+    margin-bottom: 2rem;
+  }
+  .hero div {
+    flex: 2;
+    text-align: center;
+    margin-bottom: 4rem;
+    width: 90%;
+    padding-bottom: 4rem;
+  }
+  .hero-section {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 6rem;
+    justify-content: center;
+    align-items: center;
+  }
+  .main-image {
+    width: 18rem;
+    height: 14rem;
+    border-radius: 1.5rem;
+  }
+
+  .logo-title {
+    font-size: 2rem;
+  }
+  .title-order {
+    margin-top: 2rem;
+  }
+  .main-title p {
+    color: white;
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 3rem;
+    line-height: 40px;
+  }
+  .main-title h1 {
+    font-size: 2rem;
+  }
+  .banner {
+    flex-direction: column;
+  }
+
+  .banner img {
+    width: 4rem;
+    height: 3rem;
+  }
+  .banner h1 {
+    font-size: 1.2rem;
+  }
+
+  .food-group {
+    width: 14rem;
+    height: 15rem;
+    margin: 1.5rem;
+  }
+  .footer {
+    padding: 2rem;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer > div {
+    margin: 2rem;
+  }
+  .footer .about {
+    position: relative;
+    left: 2rem;
+    text-align: center;
+  }
+
+  .food {
+    margin: 1rem;
+  }
+
+  .fooditem-section {
+    margin-top: 10rem;
+    width: 90%;
+  }
+
+  .details {
+    font-size: 1rem;
+    width: 80%;
+    text-align: center;
+  }
+  .fooditem img {
+    width: 16rem;
+    height: 14rem;
+  }
+  .fooditem {
+    width: 80%;
+
+    margin: 5rem 2rem;
+    flex-direction: column;
+    position: relative;
+    left: 2rem;
+    border: none;
+  }
+  .fooditem-section {
+    margin-top: 10rem;
+  }
+  .fooditem img {
+    width: 16rem;
+    height: 14rem;
+  }
+  .navigation {
+    display: none;
+  }
+
+  .checkout {
+    width: 80%;
+  }
+
+  .checkout-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .checkout-image img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.25rem;
+  }
+
+  .product-name {
+    width: 14rem;
+    font-size: 0.7rem;
+  }
+  .product-price {
+    font-size: 0.6rem;
+  }
+  .quantity {
+    font-size: 0.6rem;
+  }
+  .quantity input {
+    width: 1.5rem;
+  }
+  .checkout-header {
+    font-size: 0.8rem;
+  }
+
+  .trash svg {
+    color: red;
+    width: 0.7rem;
+  }
+  .payment-tab {
+    width: 80%;
+    height: 4rem;
+  }
+  .payment-tab h3 {
+    color: darkorange;
+    font-size: 0.8rem;
+  }
+  .payment-tab button {
+    padding: 0.3rem 1rem;
+  }
+  .payment-tab span {
+    font-weight: 800;
+    font-size: 0.8rem;
+  }
+
+  .checkout-page h2,
+  p {
+    color: darkorange;
+  }
+  .checkout-item-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0.5rem;
+    padding: 0 1rem;
+  }
+  .checkout-item-details p {
+    font-size: 0.7rem;
+  }
+  .checkout-page h3 {
+    font-size: 0.8rem;
+  }
+
+  .checkout-page button {
+    padding: 0.5rem 1rem;
+  }
+  .fooditem h2 {
+    font-size: 0.8rem;
+  }
+  .error-route {
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .error-route h2 {
+    color: darkorange;
+    text-align: center;
+  }
 }
