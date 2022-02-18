@@ -16,7 +16,7 @@ const Menu = () => {
   useEffect(() => {
     cartItem.length !== 0 &&
       dispatch({ type: actionTypes.ADD_TO_CART, payload: cartItem });
-  }, [cartItem]);
+  }, [dispatch]);
 
   return (
     <div className="menu">
