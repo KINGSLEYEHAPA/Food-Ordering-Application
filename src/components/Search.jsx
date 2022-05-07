@@ -36,7 +36,7 @@ const Search = () => {
         className="searchInput"
         onChange={handleFilter}
       />
-      {filterData.length === 0 ? (
+      {wordEntered.length === 0 ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-6 w-6 icon-search"
