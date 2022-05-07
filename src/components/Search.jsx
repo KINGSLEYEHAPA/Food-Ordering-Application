@@ -22,6 +22,10 @@ const Search = () => {
     setFilterData([]);
     setWordEntered("");
   };
+  const navigate = () => {
+    setFilterData([]);
+    setWordEntered("");
+  };
 
   return (
     <div className="search-section">
@@ -73,6 +77,7 @@ const Search = () => {
                   to={`/menu/${item.id}`}
                   className="searchterm"
                   key={item.id}
+                  onClick={navigate}
                 >
                   {" "}
                   {item.dsc}
