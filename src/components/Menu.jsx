@@ -35,7 +35,7 @@ const Menu = () => {
                     <p className="state"> Available</p>
                     <h3>{item.dsc}</h3>
                     <div className="food-info">
-                      <p className="price">{`$${item.price}.00`}</p>
+                      <p className="price">{`$${item.price.toFixed(2)}`}</p>
                     </div>
 
                     <p className="descrip">{item.name}</p>

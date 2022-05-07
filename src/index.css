@@ -389,7 +389,7 @@ body {
 .searchlist {
   margin-top: 8rem;
   width: 20rem;
-  height: 8rem;
+  height: 10rem;
   overflow: hidden;
   overflow-y: auto;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
